@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.bolna.ai/docs/api-reference/introduction
+docs: https://www.bolna.ai/docs/api-reference/introduction
+summary:
+  types: [http]
+  http_schemes: [bearer]
+  api_key_in: [header]
+  oauth2_flows: []
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    All Bolna API endpoints require authentication using an API key, sent in the
+    Authorization header using the Bearer scheme:
+    `Authorization: Bearer <BOLNA_API_KEY>`. API keys are generated in the Bolna
+    dashboard (platform.bolna.ai) and are hashed at rest — Bolna cannot recover a
+    plaintext key. A 401 is returned for a missing or invalid key; 403 for a
+    valid key with insufficient permissions.
+  in: header
+  key_name: Authorization
+  sources: [https://www.bolna.ai/docs/api-reference/introduction]
+notes: >-
+  Key-auth provider (single Bearer API key). No OAuth2/OIDC scope surface, so no
+  scopes/ artifact. The hosted MCP server (mcp/bolna-mcp.yml) accepts the same
+  Bearer API key (and optionally OAuth).
