@@ -1,0 +1,62 @@
+generated: '2026-07-18'
+method: derived
+source: https://www.bolna.ai/docs/api-reference
+notes: >-
+  Entity graph derived from the published API reference surface (no OpenAPI file
+  captured in-repo). Relationships reflect documented id-references between
+  resources.
+entities:
+- name: user
+  description: The account — name, email, wallet balance, concurrency limits.
+  endpoints: ['GET /user/me']
+- name: agent
+  description: A configured voice AI agent (prompts, LLM/ASR/TTS, telephony, webhook URL).
+  endpoints: ['POST /v2/agent', 'GET /v2/agent/{id}', 'GET /v2/agent/all', 'PATCH /v2/agent/{id}', 'PUT /v2/agent/{id}', 'DELETE /v2/agent/{id}', 'POST /v2/agent/{id}/stop']
+- name: execution
+  description: A single call execution — status, transcript, recording, metrics, extracted data.
+  endpoints: ['GET /executions/{id}', 'GET /executions/{id}/logs', 'GET /v2/agent/{id}/executions']
+- name: batch
+  description: A CSV-driven bulk calling campaign for one agent.
+  endpoints: ['POST /batches', 'GET /batches', 'GET /batches/{id}', 'GET /batches/{id}/executions', 'POST /batches/{id}/schedule', 'POST /batches/{id}/stop', 'DELETE /batches/{id}']
+- name: phone_number
+  description: A purchased virtual number (Twilio/Plivo/SIP) usable for inbound/outbound.
+  endpoints: ['GET /phone-numbers', 'POST /phone-numbers/buy', 'GET /phone-numbers/search', 'DELETE /phone-numbers/{id}']
+- name: inbound_binding
+  description: Association of a phone number to an agent for inbound answering.
+  endpoints: ['POST /inbound/agent', 'POST /inbound/unlink']
+- name: sip_trunk
+  description: A bring-your-own SIP trunk with gateways, IP identifiers, and numbers.
+  endpoints: ['POST /sip-trunks', 'GET /sip-trunks', 'GET /sip-trunks/{id}', 'PATCH /sip-trunks/{id}', 'DELETE /sip-trunks/{id}', 'POST /sip-trunks/{id}/numbers', 'GET /sip-trunks/{id}/numbers', 'DELETE /sip-trunks/{id}/numbers']
+- name: knowledgebase
+  description: A PDF/URL ingested for RAG grounding of an agent.
+  endpoints: ['POST /knowledgebase', 'GET /knowledgebase', 'GET /knowledgebase/{id}', 'DELETE /knowledgebase/{id}']
+- name: disposition
+  description: An extraction unit that powers structured call-outcome extraction.
+  endpoints: ['POST /dispositions', 'POST /dispositions/bulk', 'GET /dispositions', 'GET /dispositions/{id}', 'PATCH /dispositions/{id}', 'DELETE /dispositions/{id}', 'POST /dispositions/test']
+- name: provider
+  description: A user-supplied ASR/LLM/TTS/telephony credential.
+  endpoints: ['POST /providers', 'GET /providers', 'DELETE /providers/{id}']
+- name: voice
+  description: A TTS voice for a given provider/model/language.
+  endpoints: ['GET /voices', 'GET /voices/providers']
+- name: violation
+  description: A flagged call compliance violation with optional evidence.
+  endpoints: ['GET /violations', 'POST /violations/submit']
+- name: sub_account
+  description: An isolated workspace under an organization (multi-tenant).
+  endpoints: ['POST /sub-accounts', 'GET /sub-accounts', 'PATCH /sub-accounts/{id}', 'DELETE /sub-accounts/{id}', 'GET /sub-accounts/usage', 'GET /sub-accounts/all-usage']
+relationships:
+- { from: agent, to: user, kind: belongs_to, via: account }
+- { from: execution, to: agent, kind: belongs_to, via: agent_id }
+- { from: batch, to: agent, kind: belongs_to, via: agent_id }
+- { from: execution, to: batch, kind: belongs_to, via: batch_id }
+- { from: batch, to: execution, kind: has_many, via: batch_id }
+- { from: agent, to: execution, kind: has_many, via: agent_id }
+- { from: inbound_binding, to: phone_number, kind: belongs_to, via: phone_number }
+- { from: inbound_binding, to: agent, kind: belongs_to, via: agent_id }
+- { from: sip_trunk, to: phone_number, kind: has_many, via: trunk_id }
+- { from: agent, to: knowledgebase, kind: has_many, via: knowledgebase_id }
+- { from: agent, to: disposition, kind: has_many, via: agent_id }
+- { from: provider, to: user, kind: belongs_to, via: account }
+- { from: voice, to: provider, kind: belongs_to, via: provider_id }
+- { from: sub_account, to: user, kind: belongs_to, via: organization }

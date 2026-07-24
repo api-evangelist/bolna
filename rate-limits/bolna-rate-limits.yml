@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.bolna.ai/docs/api-reference/rate-limiting
+scope: >-
+  Applied per organization (if the user belongs to one), otherwise per user.
+  Org-scoped limits are shared across all users in the organization.
+over_limit_status: 429
+guidance: Apply exponential backoff and retry.
+rate_limits:
+- endpoint: /v2/agent/{agent_id}/executions
+  limit_count: 500
+  window: minute
+- endpoint: /v2/agent/{agent_id}
+  limit_count: 500
+  window: minute
+- endpoint: /call
+  limit_count: 500
+  window: minute
+- endpoint: default (all other endpoints)
+  limit_count: 1000
+  window: minute
+concurrency:
+  description: Number of simultaneous active calls the account can run.
+  check: GET /user/me -> concurrency.max / concurrency.current
+  increase: Contact support@bolna.ai or upgrade plan.
+batch_limits:
+  min_scheduled_lead_time: 2 minutes
+  start_rounding: Rounds up to next 10-minute mark
+  scheduled_at_format: ISO 8601 with numeric offset (Z suffix rejected)
+  max_csv_rows: Contact support for high-volume batches

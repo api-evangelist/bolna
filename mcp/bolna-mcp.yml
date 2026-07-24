@@ -1,0 +1,60 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://github.com/bolna-ai/mcp
+server:
+  name: bolna
+  description: >-
+    Official remote MCP server (Streamable HTTP) wrapping the Bolna voice AI
+    REST API. Manage voice agents, phone numbers, batches, and outbound calls
+    from any MCP client. Authenticate with a Bolna API key via the
+    Authorization: Bearer header (also supports OAuth).
+  transport: http
+  url: https://mcp.bolna.ai/api/mcp
+  repo: https://github.com/bolna-ai/mcp
+  auth: bearer   # Authorization: Bearer <BOLNA_API_KEY>
+install:
+  client_config: |
+    {
+      "mcpServers": {
+        "bolna": {
+          "command": "npx",
+          "args": ["-y", "mcp-remote", "https://mcp.bolna.ai/api/mcp",
+            "--header", "Authorization: Bearer <BOLNA_API_KEY>"]
+        }
+      }
+    }
+tools:
+- name: list_agents
+  access: read
+  description: List all voice AI agents in the account.
+- name: get_agent
+  access: read
+  description: Retrieve a single agent's configuration and status.
+- name: list_agent_executions
+  access: read
+  description: List call executions for an agent.
+- name: get_execution
+  access: read
+  description: Retrieve a single call execution with metrics and transcript.
+- name: list_phone_numbers
+  access: read
+  description: List phone numbers associated with the account.
+- name: list_batches
+  access: read
+  description: List batch calling campaigns.
+- name: get_user_info
+  access: read
+  description: Get account details — name, email, wallet balance, concurrency.
+- name: create_agent
+  access: write
+  description: Create a new voice AI agent.
+- name: update_agent
+  access: write
+  description: Update an existing agent's configuration.
+- name: delete_agent
+  access: write
+  description: Delete an agent and its related data.
+- name: start_outbound_call
+  access: write
+  description: Place an outbound call from an agent to a recipient number.

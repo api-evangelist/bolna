@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.bolna.ai/docs/guides/post-call/polling-call-status-webhooks
+spec_type: Webhooks
+docs:
+  webhooks_guide: https://www.bolna.ai/docs/guides/post-call/polling-call-status-webhooks
+  analytics_tab: https://www.bolna.ai/docs/agent-setup/analytics-tab
+  limits: https://www.bolna.ai/docs/api-reference/limits
+description: >-
+  Bolna pushes real-time call execution updates to a per-agent webhook URL as a
+  call progresses. The webhook URL is configured on the agent (Analytics Tab →
+  "Push all execution data to webhook", or the agent webhook_url field). The
+  endpoint must be publicly accessible and accept HTTP POST.
+transport: http-post
+delivery:
+  method: POST
+  source_ip: 13.203.39.153
+  expected_response: HTTP 200 (return fast)
+  retry: Bolna retries on non-2xx response or timeout
+  signature: none documented (whitelist the source IP for trust)
+payload:
+  description: >-
+    Payload mirrors the Get Execution API response (same shape as Call History).
+    Pre-call webhooks may include extra fields from tool pre_call_webhook_param
+    configs, distinguishable by an "in-progress" status.
+  key_field: status
+events:
+  description: One webhook is sent per status change during a call's lifecycle.
+  status_values:
+  - scheduled
+  - queued
+  - rescheduled
+  - initiated
+  - ringing
+  - in-progress
+  - call-disconnected
+  - completed
+  - no-answer
+  - busy
+  - failed
+  - canceled
+  - stopped
+  - error
+  - balance-low
+  terminal_states: [completed, no-answer, busy, failed, canceled, stopped, error, balance-low]
+  reference: errors/bolna-error-codes.yml (execution_status_enum)
+notes: >-
+  No AsyncAPI document is published by Bolna; this captures the documented
+  webhook (event) surface. Emitted as type: Webhooks.

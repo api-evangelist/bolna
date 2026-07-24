@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/bolna-ai
+packages:
+- language: python
+  registry: pypi
+  name: bolna
+  url: https://pypi.org/project/bolna/
+  install: pip install bolna
+  version_seen: 0.10.143
+  official: true
+  description: >-
+    Open-source Python framework for orchestrating end-to-end conversational
+    voice AI agents (ASR + LLM + TTS + telephony). The self-hostable engine
+    behind the Bolna platform.
+  repo: https://github.com/bolna-ai/bolna
+- language: javascript
+  registry: github
+  name: web-call
+  url: https://github.com/bolna-ai/web-call
+  install: null
+  official: true
+  description: >-
+    First-party TypeScript client for placing Bolna voice AI calls from the
+    browser (web-based calling). Not published to npm at time of capture.
+- language: go
+  registry: github
+  name: bolna-cli
+  url: https://github.com/bolna-ai/cli
+  install: go install github.com/bolna-ai/bolna-cli/cmd/bolna@latest
+  official: true
+  description: >-
+    Official Go CLI + terminal dashboard for managing agents, calls, phone
+    numbers, and batches. See cli/bolna-cli.yml for the command surface.

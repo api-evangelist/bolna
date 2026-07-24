@@ -1,0 +1,47 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.bolna.ai/docs/changelog
+scheme: dated-monthly
+docs: https://www.bolna.ai/docs/changelog
+current_window: April 2026
+entries:
+- date: '2026-04-29'
+  breaking: false
+  highlight: >-
+    Conversation rating feature launched — 1-4 scoring with optional notes for
+    internal team review and quality tracking.
+- date: '2026-04-22'
+  breaking: false
+  highlight: >-
+    Custom function import — paste cURL requests to auto-generate function
+    configurations in the Tools tab.
+- date: '2026-04-15'
+  breaking: false
+  api_change: true
+  highlight: >-
+    "Get execution raw logs" endpoint now includes an optional reasoning_content
+    field for LLM responses from traceable reasoning models (OpenAI, Gemini).
+- date: '2026-04-14'
+  breaking: false
+  highlight: >-
+    Extraction improvements — confidence scoring (0.0-1.0), confidence labels,
+    and reasoning explanations; free-text responses constrainable to timestamp
+    (ISO 8601), numeric, boolean, email, or custom regex with validation.
+- date: '2026-04-14'
+  breaking: false
+  highlight: >-
+    Multilingual agent support — language-specific configuration across prompts,
+    speech recognition, and text-to-speech.
+- date: '2026-04-13'
+  breaking: false
+  highlight: >-
+    Indian phone number search now filterable by geographic region via the Phone
+    Numbers API.
+- date: '2026-04-07'
+  breaking: false
+  highlight: >-
+    Unified voice configuration — centralized TTS provider/model/voice selector
+    with search, gender filters, and inline playback samples.
+notes: >-
+  Bolna publishes a dated monthly changelog (per-month pages back to Dec 2024).
+  Recent window captured; the live changelog is the source of truth.

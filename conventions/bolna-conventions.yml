@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.bolna.ai/docs/api-reference
+docs:
+  api_reference: https://www.bolna.ai/docs/api-reference/introduction
+  pagination: https://www.bolna.ai/docs/api-reference/pagination
+  rate_limiting: https://www.bolna.ai/docs/api-reference/rate-limiting
+  limits: https://www.bolna.ai/docs/api-reference/limits
+  errors: https://www.bolna.ai/docs/api-reference/errors
+authentication:
+  style: bearer-api-key
+  header: 'Authorization: Bearer <BOLNA_API_KEY>'
+  detail: See authentication/bolna-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or parameter is documented. Call placement is
+    inherently side-effecting; de-duplication is the caller's responsibility.
+pagination:
+  style: offset
+  mechanism: page-number
+  params:
+    page_number: { type: integer, default: 1, description: First page starts at 1 }
+    page_size: { type: integer, default: 20, max: 50 }
+  response_fields: [total, page, page_size, has_more, data]
+  notes: Offset-based under the hood; page_number/page_size are query parameters.
+versioning:
+  scheme: uri-path
+  current: v2
+  detail: >-
+    Agent endpoints are versioned in the path (/v2/agent). v1 agent endpoints are
+    marked deprecated in the API reference. See lifecycle/bolna-lifecycle.yml.
+error_envelope:
+  format: custom-json
+  shape: '{ "error": <int internal code>, "message": <human-readable string> }'
+  problem_json: false
+  detail: >-
+    Not RFC 9457. All 4xx/5xx responses return a JSON body with an integer
+    `error` code and a human-readable `message`. See errors/bolna-error-codes.yml.
+rate_limit_signaling:
+  scope: per-organization (or per-user when no org)
+  default_limit: 1000 requests/minute
+  endpoint_specific: 500 requests/minute (agent get, agent executions, /call)
+  over_limit_status: 429
+  guidance: Exponential backoff and retry.
+  detail: See rate-limits/bolna-rate-limits.yml
+datetime:
+  scheduled_at_format: ISO 8601 with numeric UTC offset (e.g. 2026-06-23T18:30:00+00:00)
+  notes: The 'Z' suffix is rejected (returns HTTP 500); use +00:00 instead.
+webhooks:
+  detail: See asyncapi/bolna-webhooks.yml

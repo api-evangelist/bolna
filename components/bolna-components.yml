@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/bolna-ai/web-call
+components:
+- family: web-call
+  name: Bolna Web Call
+  kind: browser-client
+  language: typescript
+  repo: https://github.com/bolna-ai/web-call
+  description: >-
+    First-party TypeScript client for placing Bolna voice AI calls directly from
+    the browser (web-based calling), letting sites embed a live voice-agent
+    conversation surface rather than dialing a phone number.
+  loader: null
+notes: >-
+  Distinct from server-side packages (see packages/bolna-packages.yml). Not
+  published to npm at time of capture; source is the GitHub repo. Details are
+  limited — captured from the org repo listing.

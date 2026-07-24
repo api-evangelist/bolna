@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/bolna-ai/cli
+name: bolna
+language: go
+repo: https://github.com/bolna-ai/cli
+description: >-
+  Official Bolna Voice AI CLI and full-screen terminal dashboard for managing
+  agents, calls, phone numbers, and batches without leaving the terminal.
+install:
+- method: go
+  command: go install github.com/bolna-ai/bolna-cli/cmd/bolna@latest
+- method: source
+  command: git clone + build
+- method: homebrew
+  command: (planned)
+binary: bolna
+output_formats: [json, csv, table]
+features:
+- Interactive full-screen dashboard (Charm stack TUI)
+- Interactive configuration wizards
+- OS keychain integration for secure credential storage
+commands:
+- { name: login, description: Authenticate the CLI with a Bolna API key }
+- { name: logout, description: Clear stored credentials }
+- { name: whoami, description: Show the authenticated account }
+- { name: agents, description: Manage AI agents }
+- { name: call, description: Place / handle a voice call }
+- { name: calls, description: View call history }
+- { name: numbers, description: Manage phone numbers }
+- { name: batches, description: Manage batch calling operations }
+- { name: doctor, description: System health checks }
+- { name: completion, description: Generate shell completions }

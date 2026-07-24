@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/bolna-ai/skills
+install: npx skills add bolna-ai/skills
+description: >-
+  Official Bolna Agent Skills collection — packaged operating instructions an
+  agent follows to build with Bolna correctly. Published by Bolna at
+  github.com/bolna-ai/skills and captured verbatim (names + descriptions) here;
+  the repo is the source of truth for the skill bodies.
+api: https://www.bolna.ai/docs/api-reference/introduction
+skills:
+- { name: setup-api-key, category: build-agents, description: Generate, store, and verify your BOLNA_API_KEY }
+- { name: add-provider, category: build-agents, description: Integrate external LLM, voice, and telecom credentials }
+- { name: create-agent, category: build-agents, description: Build complete voice agents with LLM, transcription, and telephony }
+- { name: manage-agents, category: build-agents, description: List, update, delete agents or stop queued calls }
+- { name: prompt-writing, category: build-agents, description: Write production voice prompts with multilingual support }
+- { name: make-call, category: make-calls, description: Place a single outbound call — immediate or scheduled }
+- { name: create-batch, category: make-calls, description: Run CSV-driven calling campaigns at scale }
+- { name: setup-inbound, category: make-calls, description: Wire phone numbers to agents with IVR menus }
+- { name: manage-phone-numbers, category: make-calls, description: Search and buy US or India phone numbers }
+- { name: setup-sip-trunk, category: make-calls, description: Bring your own SIP trunk from various carriers }
+- { name: get-executions, category: monitor-improve, description: Pull transcripts, recordings, and call metrics }
+- { name: setup-webhook, category: monitor-improve, description: Stream real-time call updates to your backend }
+- { name: create-disposition, category: monitor-improve, description: Extract structured call outcome data }
+- { name: manage-violations, category: monitor-improve, description: Handle compliance flags }
+- { name: debug-bolna-calls, category: monitor-improve, description: Troubleshoot common call issues }
+- { name: bolna-graph-agents, category: advanced, description: Build deterministic node-based call flows }
+- { name: setup-tools, category: advanced, description: Add function-calling capabilities to agents }
+- { name: create-knowledgebase, category: advanced, description: Enable RAG over PDFs/URLs }
+- { name: manage-subaccounts, category: advanced, description: Multi-tenant workspace management }

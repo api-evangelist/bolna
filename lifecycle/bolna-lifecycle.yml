@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.bolna.ai/docs/api-reference
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://www.bolna.ai/docs/api-reference/introduction
+  detail: >-
+    Agent endpoints are versioned in the request path. The v2 agent API is
+    current; the v1 agent endpoints are explicitly marked "(deprecated)" in the
+    published API reference.
+deprecation:
+  policy_url: https://www.bolna.ai/docs/api-reference/agent/v2/overview
+  sunset_header: unknown
+  detail: >-
+    Deprecation is signalled in the docs (v1 agent endpoints labelled
+    deprecated). No formal Sunset/Deprecation HTTP header support (RFC 8594) is
+    documented.
+status_page: https://status.bolna.ai
+changelog: https://www.bolna.ai/docs/changelog
+support: mailto:support@bolna.ai
+deprecated_operations:
+- 'API reference: POST /agent (create) — v1, superseded by POST /v2/agent'
+- 'API reference: GET /agent/{id} (get) — v1, superseded by GET /v2/agent/{id}'
+- 'API reference: GET /agent/all (get_all) — v1, superseded by /v2/agent/all'
+- 'API reference: PATCH /agent/{id} (patch_update) — v1'
+- 'API reference: PUT /agent/{id} (update) — v1'
+- 'API reference: agent overview — v1'
+notes: >-
+  Deprecated operations captured from the API reference index (v1 agent group
+  marked deprecated). No OpenAPI file is captured in this repo, so this list is
+  sourced from the published docs rather than a spec's deprecated flags.

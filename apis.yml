@@ -1,24 +1,158 @@
 aid: bolna
 name: Bolna
-description: 'Bolna is a company surfaced as a portfolio company of general-catalyst and added to the
-  API Evangelist network as a stub for enrichment. Sector: ai. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  Bolna is a voice AI platform for building, testing, deploying, and scaling
+  conversational voice agents that place and receive phone calls with human-like,
+  multilingual intelligence. The platform pairs a no-code Agent Studio with a
+  Bearer-authenticated REST API (api.bolna.ai) covering agents, outbound and
+  inbound calls, CSV batch campaigns, executions and transcripts, phone-number
+  purchasing and search, SIP trunks, knowledge bases (RAG over PDFs/URLs),
+  dispositions/extractions, providers (ASR/LLM/TTS credentials), voices,
+  violations, and multi-tenant sub-accounts. Bolna integrates 20+ ASR, LLM, and
+  TTS models (OpenAI, Azure, Anthropic, ElevenLabs, Deepgram) and telephony
+  providers (Twilio, Plivo, SIP), and ships a hosted MCP server, an official
+  Agent Skills collection, a Go CLI, and an open-source Python agent framework.
+  Backed by Y Combinator and General Catalyst; strong focus on Indian-language
+  (Hinglish, Hindi, Tamil, Telugu) voice agents with India data residency.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.bolna.ai/logo.png
 url: https://raw.githubusercontent.com/api-evangelist/bolna/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - general-catalyst
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Ai
-apis: []
+- Voice AI
+- Conversational AI
+- Voice Agents
+- Telephony
+- Speech
+- Call Automation
+- Contact Center
+- MCP
+apis:
+- name: Bolna Voice AI API
+  description: >-
+    REST API for building and operating conversational voice AI agents — create
+    and manage agents, place outbound calls, run CSV batch campaigns, wire
+    inbound numbers and SIP trunks, purchase/search phone numbers, retrieve call
+    executions and raw logs, manage knowledge bases, dispositions, providers,
+    voices, violations, and sub-accounts. Bearer API-key auth over HTTPS.
+  humanURL: https://www.bolna.ai/docs/api-reference/introduction
+  baseURL: https://api.bolna.ai
+  tags:
+  - Voice AI
+  - Telephony
+  - Agents
+  properties:
+  - type: APIReference
+    url: https://www.bolna.ai/docs/api-reference/introduction
+  - type: Authentication
+    url: authentication/bolna-authentication.yml
+  - type: Conventions
+    url: conventions/bolna-conventions.yml
+  - type: ErrorCatalog
+    url: errors/bolna-error-codes.yml
+  - type: RateLimits
+    url: rate-limits/bolna-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/bolna-webhooks.yml
+  - type: DataModel
+    url: data-model/bolna-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/bolna-lifecycle.yml
+  - type: Conformance
+    url: conformance/bolna-conformance.yml
+common:
+- type: DeveloperPortal
+  url: https://platform.bolna.ai/
+- type: Documentation
+  url: https://www.bolna.ai/docs
+- type: APIReference
+  url: https://www.bolna.ai/docs/api-reference/introduction
+- type: GettingStarted
+  url: https://www.bolna.ai/docs/getting-started/agent-creation
+- type: Support
+  url: mailto:support@bolna.ai
+- type: Blog
+  url: https://blog.bolna.ai
+- type: GitHubOrganization
+  url: https://github.com/bolna-ai
+- type: Pricing
+  url: https://www.bolna.ai/pricing
+- type: SignUp
+  url: https://platform.bolna.ai/
+- type: Login
+  url: https://platform.bolna.ai/login
+- type: TermsOfService
+  url: https://www.bolna.ai/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.bolna.ai/privacy-policy
+- type: StatusPage
+  url: https://status.bolna.ai
+- type: ChangeLog
+  url: https://www.bolna.ai/docs/changelog
+- type: MCPServer
+  url: mcp/bolna-mcp.yml
+- type: LLMsTxt
+  url: llms/bolna-llms.txt
+- type: Packages
+  url: packages/bolna-packages.yml
+- type: SDKs
+  url: packages/bolna-packages.yml
+- type: CLI
+  url: cli/bolna-cli.yml
+- type: Components
+  url: components/bolna-components.yml
+- type: Authentication
+  url: authentication/bolna-authentication.yml
+- type: Conventions
+  url: conventions/bolna-conventions.yml
+- type: ErrorCatalog
+  url: errors/bolna-error-codes.yml
+- type: RateLimits
+  url: rate-limits/bolna-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/bolna-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/bolna-lifecycle.yml
+- type: Webhooks
+  url: asyncapi/bolna-webhooks.yml
+- type: Conformance
+  url: conformance/bolna-conformance.yml
+- type: DataModel
+  url: data-model/bolna-data-model.yml
+- type: WellKnown
+  url: well-known/bolna-well-known.yml
+- type: DomainSecurity
+  url: security/bolna-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

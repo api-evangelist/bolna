@@ -1,0 +1,67 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.bolna.ai/docs/api-reference/errors
+format: custom-json
+envelope:
+  shape: '{ "error": <int internal code>, "message": <human-readable string> }'
+  fields:
+    error: Internal integer error code (e.g. 1001).
+    message: Human-readable description — the most useful field for debugging.
+  applies_to: all 4xx and 5xx responses
+http_status_codes:
+- status: 200
+  meaning: OK
+  when: Successful GET / action (stop, schedule, etc.)
+- status: 201
+  meaning: Created
+  when: POST /v2/agent, POST /batches — resource created
+- status: 400
+  meaning: Bad Request
+  when: Invalid or missing parameter — check `message` in the response body
+- status: 401
+  meaning: Unauthorized
+  when: Missing or invalid API key — add Authorization Bearer header
+- status: 403
+  meaning: Forbidden
+  when: Valid key but insufficient permissions
+- status: 404
+  meaning: Not Found
+  when: Resource ID doesn't exist or belongs to another account
+- status: 429
+  meaning: Too Many Requests
+  when: Rate limit hit — back off and retry with exponential backoff
+- status: 500
+  meaning: Internal Server Error
+  when: Unexpected server error — also returned when scheduled_at uses the 'Z' suffix (use +00:00 instead)
+execution_status_enum:
+  description: Returned in GET /executions/{id} and webhook payloads as the `status` field.
+  terminal_states: [completed, no-answer, busy, failed, canceled, stopped, error, balance-low]
+  values:
+  - { status: scheduled, type: intermediate, description: Call is scheduled for a future time }
+  - { status: queued, type: intermediate, description: Call accepted and waiting to dial }
+  - { status: rescheduled, type: intermediate, description: Call was rescheduled (e.g. due to guardrails) }
+  - { status: initiated, type: intermediate, description: Dialing has started }
+  - { status: ringing, type: intermediate, description: Recipient's phone is ringing }
+  - { status: in-progress, type: intermediate, description: Call answered, conversation active }
+  - { status: call-disconnected, type: soft-terminal, description: Line dropped — data still finalizing; completed follows }
+  - { status: completed, type: terminal, description: Call finished; all fields populated }
+  - { status: no-answer, type: terminal, description: Recipient didn't pick up }
+  - { status: busy, type: terminal, description: Line was busy }
+  - { status: failed, type: terminal, description: Telephony provider error }
+  - { status: canceled, type: terminal, description: Call canceled before answer }
+  - { status: stopped, type: terminal, description: Manually stopped via API }
+  - { status: error, type: terminal, description: Internal error }
+  - { status: balance-low, type: terminal, description: Insufficient wallet balance to place call }
+batch_status_enum:
+  description: Returned by GET /batches/{batch_id} as the `status` field.
+  values:
+  - { status: created, description: Batch created, not yet scheduled }
+  - { status: scheduled, description: Scheduled and waiting for start time }
+  - { status: running, description: Calls are actively being placed }
+  - { status: completed, description: All calls finished }
+  - { status: stopped, description: Manually stopped }
+  - { status: failed, description: Error prevented execution }
+scheduling_errors:
+- { scenario: scheduled_at uses 'Z' suffix, http: 500, message: Internal server error }
+- { scenario: scheduled_at < 2 minutes ahead, http: 400, message: "Scheduled time should be atleast 2 minutes in the future" }
+- { scenario: Invalid ISO 8601 format, http: 400, message: Parsing error }
