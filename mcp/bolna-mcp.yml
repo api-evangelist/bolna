@@ -4,26 +4,17 @@ status: published
 source: https://github.com/bolna-ai/mcp
 server:
   name: bolna
-  description: >-
-    Official remote MCP server (Streamable HTTP) wrapping the Bolna voice AI
-    REST API. Manage voice agents, phone numbers, batches, and outbound calls
-    from any MCP client. Authenticate with a Bolna API key via the
-    Authorization: Bearer header (also supports OAuth).
+  description: 'Official remote MCP server (Streamable HTTP) wrapping the Bolna voice AI REST API. Manage
+    voice agents, phone numbers, batches, and outbound calls from any MCP client. Authenticate with a
+    Bolna API key via the Authorization: Bearer header (also supports OAuth).'
   transport: http
   url: https://mcp.bolna.ai/api/mcp
   repo: https://github.com/bolna-ai/mcp
-  auth: bearer   # Authorization: Bearer <BOLNA_API_KEY>
+  auth: bearer
 install:
-  client_config: |
-    {
-      "mcpServers": {
-        "bolna": {
-          "command": "npx",
-          "args": ["-y", "mcp-remote", "https://mcp.bolna.ai/api/mcp",
-            "--header", "Authorization: Bearer <BOLNA_API_KEY>"]
-        }
-      }
-    }
+  client_config: "{\n  \"mcpServers\": {\n    \"bolna\": {\n      \"command\": \"npx\",\n      \"args\"\
+    : [\"-y\", \"mcp-remote\", \"https://mcp.bolna.ai/api/mcp\",\n        \"--header\", \"Authorization:\
+    \ Bearer <BOLNA_API_KEY>\"]\n    }\n  }\n}\n"
 tools:
 - name: list_agents
   access: read
@@ -58,3 +49,10 @@ tools:
 - name: start_outbound_call
   access: write
   description: Place an outbound call from an agent to a recipient number.
+deployment:
+  mode: remote
+  endpoint: https://mcp.bolna.ai/api/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
