@@ -14,6 +14,17 @@ description: >-
   Agent Skills collection, a Go CLI, and an open-source Python agent framework.
   Backed by Y Combinator and General Catalyst; strong focus on Indian-language
   (Hinglish, Hindi, Tamil, Telugu) voice agents with India data residency.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
