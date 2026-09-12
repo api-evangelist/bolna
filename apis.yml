@@ -106,6 +106,8 @@ apis:
   - type: Conformance
     url: conformance/bolna-conformance.yml
 common:
+- type: Website
+  url: https://www.bolna.ai/
 - type: DeveloperPortal
   url: https://platform.bolna.ai/
 - type: Documentation
