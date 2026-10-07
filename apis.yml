@@ -106,6 +106,8 @@ apis:
   - type: Conformance
     url: conformance/bolna-conformance.yml
 common:
+- type: Plans
+  url: plans/bolna-plans-pricing.yml
 - url: https://www.bolna.ai/blog
   type: Blog
 - url: https://www.bolna.ai/blog/rss.xml
