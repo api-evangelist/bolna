@@ -1,0 +1,59 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.bolna.ai/pricing
+sources:
+- https://www.bolna.ai/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+  managed_tier: Pay-as-you-go
+published: true
+note: Per-minute voice usage pricing with payment tiers ($15–$3K) scaling from 6.00¢/min to 4.51¢/min;
+  enterprise is negotiated.
+plan_count: 5
+currency: USD
+plans:
+- name: Pay-as-you-go
+  price_text: Purchase credits ($10 to $5000)
+  currency: USD
+  period: per-use
+  unit: credits
+  included_quota: $5 in free credits when you sign up
+- name: Standard rate (volume-based)
+  price_text: 6.00¢ (₹5.52) per minute
+  price: 6
+  currency: USD
+  period: per-use
+  unit: per minute
+  included_quota: Standard rate — increase volume for better pricing; best tier 4.51 ¢ / min
+- name: Pilots Plan
+  price_text: $500 for 12,000 minutes (~4.2¢/min)
+  price: 500
+  currency: USD
+  period: one-time
+  unit: 12,000 minutes
+  included_quota: up to 25 concurrent calls, enterprise features, one month of dedicated support
+  overage: after that the account reverts to standard pricing from 6¢/minute
+- name: Pilots Plan (smaller tier)
+  price_text: $300 for 6,500 minutes (~4.6¢/min)
+  price: 300
+  currency: USD
+  period: one-time
+  unit: 6,500 minutes
+  included_quota: up to 25 concurrent calls, enterprise features, one month of dedicated support
+- name: Enterprise Plan
+  price_text: Talk to sales
+  period: none
+  included_quota: Best-in-class pricing at committed volumes, customised integrations and deployment,
+    priority support, dedicated account manager
+rate_limit_statements:
+- Maximum Concurrency of 25
+- Both include up to 25 concurrent calls
