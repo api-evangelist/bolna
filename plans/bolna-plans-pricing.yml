@@ -57,3 +57,52 @@ plans:
 rate_limit_statements:
 - Maximum Concurrency of 25
 - Both include up to 25 concurrent calls
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units:
+  - compute
+  - credit
+  plans:
+  - name: Pay-as-you-go
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - credit
+    periods:
+    - other
+  - name: Standard rate (volume-based)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Pilots Plan
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - one-time
+  - name: Pilots Plan (smaller tier)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - one-time
+  - name: Enterprise Plan
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
