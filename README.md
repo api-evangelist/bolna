@@ -64,6 +64,121 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bolna is a company surfaced as a portfolio company of general-catalyst and added to the API Evangelist network as a stub for enrichment. Sector: ai. This profile is a lead awaiting the enrichment pipeline.
+Bolna is a voice AI platform for building, testing, deploying, and scaling conversational voice agents that place and receive phone calls with human-like, multilingual intelligence. The platform pairs a no-code Agent Studio with a Bearer-authenticated REST API (api.bolna.ai) covering agents, outbound and inbound calls, CSV batch campaigns, executions and transcripts, phone-number purchasing and search, SIP trunks, knowledge bases (RAG over PDFs/URLs), dispositions/extractions, providers (ASR/LLM/TTS credentials), voices, violations, and multi-tenant sub-accounts. Bolna integrates 20+ ASR, LLM, and TTS models (OpenAI, Azure, Anthropic, ElevenLabs, Deepgram) and telephony providers (Twilio, Plivo, SIP), and ships a hosted MCP server, an official Agent Skills collection, a Go CLI, and an open-source Python agent framework. Backed by Y Combinator and General Catalyst; strong focus on Indian-language (Hinglish, Hindi, Tamil, Telugu) voice agents with India data residency.
 
-Backed by: general-catalyst
+**Areas:** Company · Artificial Intelligence · Voice AI · Conversational AI · Voice Agents · Telephony · Speech · Call Automation · Contact Center · MCP
+
+## Bolna on APIs.io
+
+Everything profiled for Bolna is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bolna/](https://apis.io/providers/bolna/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Bolna Voice AI API](https://apis.io/apis/bolna/bolna-voice-ai-api/) — REST API for building and operating conversational voice AI agents — create and manage agents, place outbound calls, run CSV batch campaigns, wire inbound…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Bolna Webhooks](https://apis.io/asyncapis/bolna/bolna-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [bolna](https://apis.io/servers/bolna/bolna/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bolna Authentication](https://apis.io/security/bolna/bolna-authentication/)
+- [Bolna Domain Security](https://apis.io/security/bolna/bolna-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Bolna Plans Pricing](https://apis.io/plans/bolna/bolna-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Bolna Rate Limits](https://apis.io/rate-limits/bolna/bolna-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.bolna.ai/)
+- [Documentation](https://www.bolna.ai/docs)
+- [Getting started](https://www.bolna.ai/docs/getting-started/agent-creation)
+- [API reference](https://www.bolna.ai/docs/api-reference/introduction)
+- [Pricing](https://www.bolna.ai/pricing)
+- [Sign up](https://platform.bolna.ai/)
+- [Changelog](https://www.bolna.ai/docs/changelog)
+- [Blog](https://www.bolna.ai/blog)
+- [Terms of service](https://www.bolna.ai/terms-of-service)
+- [Privacy policy](https://www.bolna.ai/privacy-policy)
+- [GitHub](https://github.com/bolna-ai)
+- [Status](https://status.bolna.ai)
+
+## API Evangelist rating
+
+**Kin Score 55.8** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 73.7 |
+| Developer ergonomics | 69.0 |
+| Access clarity | 69.7 |
+
+**Agent readiness 53.6** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 22.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bolna/](https://apis.io/providers/bolna/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bolna: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bolna/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
